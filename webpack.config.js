@@ -58,6 +58,7 @@ module.exports = {
 	},
 	plugins: [
 		new CleanWebpackPlugin(), // delete all old files in dist folder
+		new MiniCssExtractPlugin(), // extracts css into seperate files
 		new HtmlWebpackPlugin({
 			// generate a minified html with styles and scripts included
 			filename: "index.html",
@@ -66,7 +67,6 @@ module.exports = {
 		new CopyPlugin({
 			patterns: [{ from: "./src/public", to: "./" }],
 		}),
-		new MiniCssExtractPlugin(),
 	],
 	devServer: {
 		contentBase: "./dist",
