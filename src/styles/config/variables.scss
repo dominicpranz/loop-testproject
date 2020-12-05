@@ -1,16 +1,54 @@
 // variables
 
 // breakpoints
+$sm: 640 !default;
+$md: 768 !default;
+$lg: 1024 !default;
+$xl: 1280 !default;
+$xxl: 1920 !default;
+
+$sm-up: "min-width: #{$sm}px";
+$md-up: "min-width: #{$md}px";
+$lg-up: "min-width: #{$lg}px";
+$xl-up: "min-width: #{$xl}px";
+$xxl-up: "min-width: #{$xxl}px";
 
 // paths
 
 // colors
+$color-black: #000;
+$color-white: #fff;
+$color-accent: #c4132f;
+$color-lightgrey: #e5eaee;
+$color-lightgrey-2: #eeeeee; // used in "old articles preview"
+$color-lightgrey-3: #e8e8e8; // used in "form background"
+$color-darkgrey: #717171;
 
-// typography / fonts
+// typography
+// fonts
+$font-family-default: "ArialMT", Arial, sans-serif;
+
+// font-weights
+$font-weight-default: 400;
+$font-weight-bold: 700;
 
 // font-sizes
-// mobile
-
+// mobile (not given in screendesign, adjust if needed)
+$font-size-mobile-small: 0.8125rem; // 13px
+$font-size-mobile: 0.9375rem; // 15px
+$font-size-mobile-subtitle: 1.25rem; // 20px
+$font-size-mobile-subtitle-big: 1.5625em; // 25px
+$font-size-mobile-headline: 1.875rem; // 30px
+$font-size-mobile-headline-hero: 3.125rem; // 50px
 // desktop
+$font-size-desktop-small: 0.8125rem; // 13px
+$font-size-desktop: $font-size-mobile; // 15px
+$font-size-desktop-alt: 1rem; // 16px - used in "nav top"
+$font-size-desktop-subtitle: 1.25rem; // 20px
+$font-size-desktop-subtitle-big: 1.875rem; // 30px
+$font-size-desktop-headline: 3.125rem; // 50px
+$font-size-desktop-headline-hero: 4.125rem; // 66px
+
+// common widths
 
 // utility variables which are reused across multiple files
