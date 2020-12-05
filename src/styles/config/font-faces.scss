@@ -1,0 +1,23 @@
+// font faces and default typo styles
+
+@use "../config/variables.scss" as *;
+
+$fonts-folder-path: "../fonts";
+
+// arial-mt
+
+$arial-mt-path: "#{$fonts-folder-path}/arial-mt";
+
+@font-face {
+	font-family: "arial-mt";
+	src: local("ArialMT"), url("#{$arial-mt-path}/ARIALMT.woff") format("woff");
+	font-weight: $font-weight-default;
+	font-display: block; // flash of invisible text until font is downloaded
+}
+
+@font-face {
+	font-family: "arial-mt";
+	src: local("Arial-BoldMT"), url("#{$arial-mt-path}/ARIALBOLDMT.woff") format("woff");
+	font-weight: $font-weight-bold;
+	font-display: block;
+}

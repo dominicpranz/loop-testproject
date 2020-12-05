@@ -1,4 +1,14 @@
 // config => defining reusable variables and base styles
 @use "./config/variables.scss" as *;
+@use "./config/font-faces.scss";
+@use "./config/resets.scss";
+@use "./config/typography.scss";
 
 // components => styling the actual content
+@use "./components/navigation.scss";
+@use "./components/hero.scss";
+@use "./components/news.scss";
+@use "./components/about-us.scss";
+@use "./components/team.scss";
+@use "./components/contact.scss";
+@use "./components/footer.scss";
