@@ -10,7 +10,7 @@ $arial-mt-path: "#{$fonts-folder-path}/arial-mt";
 
 @font-face {
 	font-family: "arial-mt";
-	src: local("ArialMT"), url("#{$arial-mt-path}/ARIALBOLDMT.woff") format("woff");
+	src: local("ArialMT"), url("#{$arial-mt-path}/ARIALMT.woff") format("woff");
 	font-weight: $font-weight-default;
 	font-display: block; // flash of invisible text until font is downloaded
 }
