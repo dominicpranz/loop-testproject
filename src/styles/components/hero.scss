@@ -1,0 +1,20 @@
+@use "../config/variables.scss" as *;
+
+.hero-section {
+	padding-top: $nav-height-mobile;
+	height: 100vh;
+	background-color: lightgreen;
+	clip-path: polygon(0 0, 100% 0, 100% 89%, 50% 100%, 0 89%);
+
+	@media ($breakpoint-desktop-up) {
+		padding-top: $nav-height-desktop;
+		height: 780px;
+	}
+
+	.hero-section__text {
+		background-image: url("#{$image-path}/icons/compass.svg");
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: 80% 0%;
+	}
+}

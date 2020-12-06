@@ -1,8 +1,9 @@
 // config => defining reusable variables and base styles
-@use "./config/variables.scss" as *;
 @use "./config/font-faces.scss";
 @use "./config/resets.scss";
+@use "./config/base.scss";
 @use "./config/typography.scss";
+@use "./config/utility.scss";
 
 // components => styling the actual content
 @use "./components/navigation.scss";
@@ -12,3 +13,7 @@
 @use "./components/team.scss";
 @use "./components/contact.scss";
 @use "./components/footer.scss";
+// modals
+@use "./components/modals/custom-modals.scss";
+@use "./components/modals/news-modal.scss";
+@use "./components/modals/dates-modal.scss";

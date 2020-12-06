@@ -1,0 +1,19 @@
+@use "../../config/variables.scss" as *;
+
+.custom-modals {
+	z-index: $z-index-modals;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity $anim-speed-fast $timing-function-default;
+
+	&.custom-modals--open {
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	.custom-modal {
+		&:not(.custom-modal--open) {
+			display: none;
+		}
+	}
+}

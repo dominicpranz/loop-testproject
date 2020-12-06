@@ -37,5 +37,7 @@
     "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "css-reset-and-normalize": "^2.3.3"
+  }
 }

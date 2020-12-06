@@ -13,7 +13,11 @@ $lg-up: "min-width: #{$lg}px";
 $xl-up: "min-width: #{$xl}px";
 $xxl-up: "min-width: #{$xxl}px";
 
+$breakpoint-desktop-up: $lg-up; // breakpoint where most of the layout changes from mobile to desktop
+
 // paths
+$image-path: "/src/images";
+$logo-path: "#{$image-path}/logo/logo.svg";
 
 // colors
 $color-black: #000;
@@ -50,5 +54,22 @@ $font-size-desktop-headline: 3.125rem; // 50px
 $font-size-desktop-headline-hero: 4.125rem; // 66px
 
 // common widths
+$side-gap-mobile: 20px;
+$side-gap-desktop: 50px;
+$max-width-desktop: 1400px;
+$nav-height-mobile: 50px;
+$nav-height-desktop: 82px;
+
+// z-indexes
+$z-index-navigation: 200;
+$z-index-modals: 100;
+
+// animation speeds
+$anim-speed-fast: 0.2s;
+$anim-speed-default: 0.4s;
+$anim-speed-slow: 0.6s;
+
+// timing functions
+$timing-function-default: ease-in-out;
 
 // utility variables which are reused across multiple files

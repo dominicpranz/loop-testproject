@@ -1,0 +1,70 @@
+@use "../config/variables.scss" as *;
+
+.nav-top {
+	position: fixed;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, 0);
+	width: 100%;
+	height: $nav-height-mobile;
+	display: flex;
+	z-index: $z-index-navigation;
+
+	@media ($breakpoint-desktop-up) {
+		height: $nav-height-desktop;
+	}
+
+	ul.nav-top__menu-area {
+		flex-basis: (100% / 3) * 2;
+		list-style: none;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		background-color: $color-white;
+		padding: 0 $side-gap-mobile;
+		font-weight: $font-weight-bold;
+
+		@media ($breakpoint-desktop-up) {
+			padding: 0 $side-gap-desktop;
+		}
+
+		li {
+			display: inline-block;
+
+			&:not(:last-of-type) {
+				margin: 0 0 1rem;
+
+				@media ($breakpoint-desktop-up) {
+					margin: 0 $side-gap-desktop 0 0;
+				}
+			}
+		}
+	}
+
+	.nav-top__logo-area {
+		flex-basis: (100% / 3);
+		padding: 10px $side-gap-mobile;
+		background-color: $color-accent;
+		display: flex;
+		align-items: center;
+
+		@media ($breakpoint-desktop-up) {
+			padding: 10px $side-gap-desktop;
+		}
+
+		.nav-top__logo {
+			border: 1px solid black;
+			max-height: 100%;
+			$ratio: 456/270;
+			width: (100% / $ratio);
+			margin-left: auto;
+
+			&::before {
+				content: "";
+				display: inline-block;
+				$ratio: 270/55;
+				padding-bottom: 100% / $ratio;
+			}
+		}
+	}
+}

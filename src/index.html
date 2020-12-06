@@ -16,7 +16,7 @@
 
 <body>
 
-	<nav class="nav-top">
+	<nav class="nav-top container">
 		<ul class="nav-top__menu-area">
 			<li><a href="#about-us">About us</a></li>
 			<li><a href="#gallery">Gallery</a></li>
@@ -24,14 +24,16 @@
 			<li><a href="#contact">Contact</a></li>
 		</ul>
 		<div class="nav-top__logo-area">
-			<img src="" alt="logo" class="nav-top__logo" />
+			<div class="nav-top__logo main-logo"></div>
 		</div>
 	</nav>
 
 	<section class="hero-section">
 		<!-- background should be parallax-->
-		<h1 class="hero-section__headline">Lorem Ipsum</h1>
-		<h3 class="hero-section__subheadline">Lorem Ipsum</h3>
+		<div class="hero-section__text">
+			<h1 class="hero-section__headline headline-hero">Frohe Weihnachten!</h1>
+			<h3 class="hero-section__subheadline">Lorem Ipsum</h3>
+		</div>
 	</section>
 
 	<section class="news-section" id="news">
@@ -81,10 +83,12 @@
 	</section>
 
 	<div class="custom-modals">
-		<button class="custom-modals__close"></button>
-		<div class="custom-modals__socials">
-			<a href="" class="socials--twitter"></a>
-			<a href="" class="socials--facebook"></a>
+		<div class="custom-modals__sidebar">
+			<button class="custom-modals__close"></button>
+			<div class="custom-modals__socials">
+				<a href="" class="socials--twitter"></a>
+				<a href="" class="socials--facebook"></a>
+			</div>
 		</div>
 
 		<div class="news-modal custom-modal">

@@ -1,0 +1,14 @@
+// general utility classes
+
+@use "../config/variables.scss" as *;
+
+section,
+footer,
+.container {
+	max-width: $max-width-desktop;
+	margin: 0 auto;
+
+	&.container--full-width {
+		max-width: none;
+	}
+}

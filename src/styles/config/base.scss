@@ -1,0 +1,56 @@
+// base styles and resets
+
+@use "../config/variables.scss" as *;
+
+:root {
+	// css custom properties
+}
+
+::selection {
+	background-color: $color-black;
+	color: $color-white;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: $color-lightgray;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+a {
+	color: inherit;
+	text-decoration: inherit;
+
+	&:hover {
+		color: inherit;
+		text-decoration: inherit;
+	}
+
+	&:focus {
+		// hide focus when not needed like on click
+		outline: none;
+	}
+
+	&:focus-visible {
+		// show focus when needed like when using tab
+		outline-width: 1px;
+		outline-offset: 1px;
+		outline-style: auto; // auto works even with color effects like mix-blend-mode: difference, where black would otherwise be invisible
+		outline-color: #000;
+	}
+}
