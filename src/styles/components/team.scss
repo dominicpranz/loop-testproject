@@ -15,13 +15,24 @@
 		flex-wrap: wrap;
 
 		.team-section__card {
+			$cards-per-row: 5;
+
 			position: relative;
 			background-color: $color-lightgray;
 			display: inline-block;
-			width: calc(100% / 5);
+			width: calc(100% / #{$cards-per-row});
 			background-color: $color-lightgray;
 			color: $color-black;
-			padding: 1rem;
+			z-index: 2;
+
+			@for $i from 1 through $cards-per-row {
+				&:nth-child(#{$i}) {
+					z-index: $cards-per-row - $i;
+				}
+				&:nth-child(#{$cards-per-row}) {
+					z-index: $i;
+				}
+			}
 
 			&::before {
 				content: "";
@@ -30,12 +41,7 @@
 				padding-bottom: 100% / $ratio;
 			}
 
-			.team-section__content {
-				display: flex;
-				flex-direction: column;
-				justify-content: flex-end;
-			}
-
+			.team-section__card__content,
 			img {
 				position: absolute;
 				display: inline-block;
@@ -43,7 +49,50 @@
 				left: 0;
 				width: 100%;
 				height: 100%;
-				//background-color: pink;
+			}
+
+			.team-section__card__content {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+				padding: 2rem;
+				background-color: $color-lightgray;
+				transition-property: left, right;
+				transition-duration: 1s;
+				transition-timing-function: $timing-function-default;
+				pointer-events: none;
+
+				.subtitle {
+					text-transform: uppercase;
+					margin-bottom: 0.5rem;
+				}
+			}
+
+			&:hover {
+				.team-section__card__content {
+					left: 100%;
+				}
+			}
+
+			&:nth-child(#{$cards-per-row}),
+			&:nth-child(#{$cards-per-row - 1}) {
+				.team-section__card__content {
+					left: auto;
+					right: 0;
+				}
+
+				&:hover {
+					.team-section__card__content {
+						right: 100%;
+					}
+				}
+			}
+
+			img {
+				display: inline-block;
+				object-fit: cover;
+				object-position: center;
+				z-index: 1;
 			}
 		}
 	}
