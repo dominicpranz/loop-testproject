@@ -12,3 +12,27 @@ footer,
 		max-width: none;
 	}
 }
+
+.section-header {
+	position: relative;
+	text-transform: uppercase;
+	text-align: center;
+
+	&::after {
+		content: "";
+		display: inline-block;
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		transform: translate(-50%, 0);
+		height: 1px;
+		width: 100%;
+		padding: 0 $side-gap-mobile;
+		max-width: 390px;
+		background-color: red;
+	}
+
+	.subtitle {
+		padding-bottom: 1rem;
+	}
+}

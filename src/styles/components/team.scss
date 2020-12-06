@@ -1,0 +1,50 @@
+@use "../config/variables.scss" as *;
+
+.team-section {
+	background-color: $color-black;
+	color: $color-white;
+
+	.section-header {
+		&::after {
+			background-color: $color-white;
+		}
+	}
+
+	.team-section__cards {
+		display: flex;
+		flex-wrap: wrap;
+
+		.team-section__card {
+			position: relative;
+			background-color: $color-lightgray;
+			display: inline-block;
+			width: calc(100% / 5);
+			background-color: $color-lightgray;
+			color: $color-black;
+			padding: 1rem;
+
+			&::before {
+				content: "";
+				display: inline-block;
+				$ratio: 1/1;
+				padding-bottom: 100% / $ratio;
+			}
+
+			.team-section__content {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+			}
+
+			img {
+				position: absolute;
+				display: inline-block;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				//background-color: pink;
+			}
+		}
+	}
+}

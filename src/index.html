@@ -185,8 +185,11 @@
 	</div>
 
 	<section class="about-us-section" id="about-us">
-		<h2 class="about-us-section__headline">Headline</h2>
-		<h3 class="about-us-section__subtitle">Subtitle Lorem Ipsum</h3>
+		<header class="section-header">
+			<h2 class="about-us-section__headline">Headline</h2>
+			<p class="about-us-section__subtitle subtitle">Subtitle Lorem Ipsum</p>
+		</header>
+
 		<p class="about-us-section__column-1"></p>
 		<p class="about-us-section__column-2"></p>
 		<div class="about-us-section__image-timeline">
@@ -200,10 +203,20 @@
 	</section>
 
 	<section class="team-section" id="team">
-		<!-- duplicate this 15 times and add a background-image for each -->
-		<div class="team-section__card">
-			<h3 class="team-section__card__name"></h3>
-			<p class="team-section__card__quote"></p>
+		<header class="section-header">
+			<h2>Unser Team</h2>
+			<p class="subtitle">Subtitles von Team</p>
+		</header>
+
+		<div class="team-section__cards">
+			<!-- duplicate this 15 times and add a background-image for each -->
+			<div class="team-section__card">
+				<div class="team-section__card__content">
+					<p class="team-section__card__name .subtitle"></p>
+					<p class="team-section__card__quote"></p>
+				</div>
+				<img src="./images/team/team1.jpg" alt="team-member-name">
+			</div>
 		</div>
 	</section>
 
