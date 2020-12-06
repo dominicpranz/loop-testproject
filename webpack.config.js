@@ -26,7 +26,7 @@ module.exports = {
 					//"style-loader", // Inject CSS into the DOM
 					MiniCssExtractPlugin.loader, // instead of style-loader, create a css file without needing js
 					"css-loader", // resolve url() and @imports inside CSS
-					"postcss-loader", // apply postCSS fixes like autoprefixer and minifying
+					//"postcss-loader", // apply postCSS fixes like autoprefixer and minifying
 					{
 						loader: "sass-loader", // transform SASS to standard CSS
 						options: {
@@ -35,6 +35,10 @@ module.exports = {
 					},
 				],
 			},
+			/*{
+				test: /\.html$/i,
+				loader: "html-loader",
+			},*/
 			{
 				test: /\.(png|jpe?g|gif|svg)$/i,
 				loader: "file-loader",
