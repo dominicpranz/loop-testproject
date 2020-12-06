@@ -18,6 +18,15 @@ body {
 	}
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: $font-weight-bold;
+}
+
 // style h1 and h2 the same, the difference should be in context for seo
 // headlines
 h1,

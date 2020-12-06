@@ -5,6 +5,9 @@
 	height: 100vh;
 	background-color: lightgreen;
 	clip-path: polygon(0 0, 100% 0, 100% 89%, 50% 100%, 0 89%);
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
 
 	@media ($breakpoint-desktop-up) {
 		padding-top: $nav-height-desktop;
@@ -12,9 +15,34 @@
 	}
 
 	.hero-section__text {
-		background-image: url("#{$image-path}/icons/compass.svg");
-		background-repeat: no-repeat;
-		background-size: contain;
-		background-position: 80% 0%;
+		position: relative;
+		height: 60%;
+		text-align: center;
+		text-transform: uppercase;
+		overflow: hidden;
+
+		&::before {
+			content: "";
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			left: 45%;
+			//background-color: pink;
+			height: 100%;
+			width: 100%;
+			background-image: url("#{$image-path}/icons/compass.svg");
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: center;
+			z-index: -1;
+		}
+
+		@media ($breakpoint-desktop-up) {
+			max-width: 40%;
+		}
+
+		h1 {
+			color: $color-accent;
+		}
 	}
 }
