@@ -35,10 +35,6 @@ module.exports = {
 					},
 				],
 			},
-			/*{
-				test: /\.html$/i,
-				loader: "html-loader",
-			},*/
 			{
 				test: /\.(png|jpe?g|gif|svg)$/i,
 				loader: "file-loader",
@@ -52,6 +48,10 @@ module.exports = {
 				options: {
 					outputPath: "fonts",
 				},
+			},
+			{
+				test: /\.html$/i,
+				loader: "html-loader",
 			},
 		],
 	},
