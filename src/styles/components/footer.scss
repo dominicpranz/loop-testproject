@@ -1,5 +1,94 @@
 @use "../config/variables.scss" as *;
 
 footer {
+	$footer-padding-top: 50px;
+
 	background-color: $color-lightgray;
+	background-color: lightseagreen;
+	clip-path: polygon(50% 0%, 100% $footer-padding-top, 100% 100%, 0 100%, 0% $footer-padding-top);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	font-size: $font-size-mobile-small;
+	padding: ($footer-padding-top * 1.5) $side-gap-mobile ($footer-padding-top / 2);
+	height: calc(375px - #{$footer-padding-top});
+
+	@media ($breakpoint-desktop-up) {
+		flex-direction: row;
+		justify-content: space-between;
+		font-size: $font-size-desktop-small;
+
+		padding: $footer-padding-top $side-gap-desktop ($footer-padding-top / 2);
+		height: calc(175px - #{$footer-padding-top});
+	}
+
+	.footer__copyright,
+	.footer__socials,
+	.footer__links {
+		flex: 1; // keep all children the same size
+		display: flex; // align their children with flex
+		align-items: center;
+	}
+
+	.footer__copyright {
+		order: 3;
+		color: $color-gray;
+
+		@media ($breakpoint-desktop-up) {
+			order: 0;
+		}
+	}
+
+	.footer__socials {
+		order: 2;
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin: 2rem 0;
+
+		@media ($breakpoint-desktop-up) {
+			order: 0;
+			margin: 0;
+		}
+
+		a {
+			display: inline-block;
+			background-color: pink;
+			height: 2rem;
+			width: 2rem;
+
+			&:not(:last-of-type) {
+				margin-right: 0.5rem;
+			}
+		}
+	}
+
+	.footer__links {
+		order: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+
+		@media ($sm-up) {
+			flex-direction: row;
+		}
+
+		@media ($breakpoint-desktop-up) {
+			order: 0;
+		}
+
+		a {
+			display: inline-block;
+
+			&:not(:last-of-type) {
+				margin-bottom: 0.5rem;
+
+				@media ($sm-up) {
+					margin-bottom: 0;
+					margin-right: 1rem;
+				}
+			}
+		}
+	}
 }
