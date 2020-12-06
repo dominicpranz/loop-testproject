@@ -2,6 +2,8 @@
 
 @use "../config/variables.scss" as *;
 
+$breakpoint-down-responsive-font-sizes: "max-width: 320px";
+
 html {
 	font-size: 100%;
 }
@@ -13,8 +15,8 @@ body {
 	overflow-wrap: break-word;
 	hyphens: auto;
 
-	@media (max-width: 300px) {
-		font-size: 6vw;
+	@media ($breakpoint-down-responsive-font-sizes) {
+		font-size: 5vw;
 	}
 }
 
@@ -23,14 +25,19 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.headline-hero,
+.headline,
+.subtitle,
+.subtitle-big {
 	font-weight: $font-weight-bold;
 }
 
 // style h1 and h2 the same, the difference should be in context for seo
 // headlines
 h1,
-h2 {
+h2,
+.headline {
 	font-size: $font-size-mobile-headline;
 
 	@media ($breakpoint-desktop-up) {
@@ -38,9 +45,27 @@ h2 {
 	}
 }
 
+// biggest headlines
+.headline-hero {
+	font-size: $font-size-mobile-headline-hero;
+
+	@media ($breakpoint-down-responsive-font-sizes) {
+		font-size: 10vw;
+	}
+
+	@media ($breakpoint-desktop-up) {
+		font-size: $font-size-desktop-headline-hero;
+	}
+}
+
 // subtitles big
-h3 {
+h3,
+.subtitle-big {
 	font-size: $font-size-mobile-subtitle-big;
+
+	@media ($breakpoint-down-responsive-font-sizes) {
+		font-size: 7vw;
+	}
 
 	@media ($breakpoint-desktop-up) {
 		font-size: $font-size-desktop-subtitle-big;
@@ -50,18 +75,15 @@ h3 {
 // subtitles
 h4,
 h5,
-h6 {
+h6,
+.subtitle {
 	font-size: $font-size-mobile-subtitle;
+
+	@media ($breakpoint-down-responsive-font-sizes) {
+		font-size: 6vw;
+	}
 
 	@media ($breakpoint-desktop-up) {
 		font-size: $font-size-desktop-subtitle;
-	}
-}
-
-.headline-hero {
-	font-size: $font-size-mobile-headline-hero;
-
-	@media ($breakpoint-desktop-up) {
-		font-size: $font-size-desktop-headline-hero;
 	}
 }

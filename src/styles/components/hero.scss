@@ -3,11 +3,15 @@
 .hero-section {
 	padding-top: $nav-height-mobile;
 	height: 100vh;
-	background-color: lightgreen;
+	//background-color: lightgreen;
 	clip-path: polygon(0 0, 100% 0, 100% 89%, 50% 100%, 0 89%);
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
+	background-image: url("#{$image-path}/background/christmas1.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
 
 	@media ($breakpoint-desktop-up) {
 		padding-top: $nav-height-desktop;
