@@ -28,9 +28,10 @@ h5,
 h6,
 .headline-hero,
 .headline,
-.subtitle,
-.subtitle-big {
+.subtitle-big,
+.subtitle {
 	font-weight: $font-weight-bold;
+	text-transform: uppercase;
 }
 
 // style h1 and h2 the same, the difference should be in context for seo

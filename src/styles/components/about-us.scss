@@ -1,0 +1,27 @@
+@use "../config/variables.scss" as *;
+
+.about-us-section {
+	.about-us-section__columns {
+		display: flex;
+		flex-direction: column;
+
+		@media ($breakpoint-desktop-up) {
+			flex-direction: row;
+			justify-content: center;
+		}
+
+		p {
+			@media ($breakpoint-desktop-up) {
+				flex-basis: 500px;
+			}
+
+			&:not(:last-of-type) {
+				margin: 0 0 $side-gap-desktop;
+
+				@media ($breakpoint-desktop-up) {
+					margin: 0 $side-gap-desktop 0 0;
+				}
+			}
+		}
+	}
+}

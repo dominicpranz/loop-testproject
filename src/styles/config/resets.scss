@@ -4,3 +4,12 @@
 @use '../../../node_modules/css-reset-and-normalize/scss/link-reset.scss';
 
 // apply additional resets here
+
+form {
+	input {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		background-color: transparent;
+	}
+}

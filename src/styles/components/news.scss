@@ -1,0 +1,27 @@
+@use "../config/variables.scss" as *;
+
+.news-section {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: auto;
+	grid-template-areas:
+		"news-card-small news-card-small news-card-big news-card-big"
+		"news-card-image news-card-image news-card-big news-card-big"
+		"news-card-image news-card-image news-card-image news-card-image";
+
+	.news-card {
+		border: 2px solid pink;
+
+		&.news-card--small {
+			grid-area: news-card-small;
+		}
+
+		&.news-card--big {
+			grid-area: news-card-big;
+		}
+
+		&.news-card--image {
+			grid-area: news-card-image;
+		}
+	}
+}
