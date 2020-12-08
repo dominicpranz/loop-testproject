@@ -7,7 +7,7 @@
 }
 
 ::selection {
-	background-color: $color-black;
+	background-color: $color-accent;
 	color: $color-white;
 }
 
@@ -24,6 +24,10 @@ html {
 
 body {
 	background-color: $color-lightgray;
+
+	&.prevent-scrolling {
+		overflow: hidden;
+	}
 }
 
 *,
@@ -56,7 +60,7 @@ a {
 }
 
 main {
-	margin: 0 $side-gap-mobile;
+	//margin: 0 $side-gap-mobile;
 }
 
 section,

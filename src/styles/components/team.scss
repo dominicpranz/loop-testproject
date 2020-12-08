@@ -1,10 +1,21 @@
 @use "../config/variables.scss" as *;
 
 .team-section {
+	margin-bottom: -$clip-path-distance-team;
+	padding: $clip-path-distance-team $side-gap-mobile;
+	clip-path: polygon(0 $clip-path-distance-team, 100% 0, 100% calc(100% - #{$clip-path-distance-team}), 0% 100%);
+
 	background-color: $color-black;
 	color: $color-white;
 
+	@media ($breakpoint-desktop-up) {
+		clip-path: polygon(0 $clip-path-distance-team-lg, 100% 0, 100% 100%, 0% 100%);
+		padding: $clip-path-distance-team-lg 0 0;
+	}
+
 	.section-header {
+		margin-top: $gap-y;
+
 		&::after {
 			background-color: $color-white;
 		}
@@ -13,6 +24,7 @@
 	.team-section__cards {
 		display: flex;
 		flex-wrap: wrap;
+		margin-bottom: $gap-y;
 
 		.team-section__card {
 			$cards-per-row: 5;

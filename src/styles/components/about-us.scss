@@ -1,6 +1,8 @@
 @use "../config/variables.scss" as *;
 
 .about-us-section {
+	padding: 0 $side-gap-mobile;
+
 	.about-us-section__columns {
 		display: flex;
 		flex-direction: column;
@@ -10,7 +12,7 @@
 			justify-content: center;
 		}
 
-		p {
+		& > div {
 			@media ($breakpoint-desktop-up) {
 				flex-basis: 500px;
 			}
@@ -21,6 +23,10 @@
 				@media ($breakpoint-desktop-up) {
 					margin: 0 $side-gap-desktop 0 0;
 				}
+			}
+
+			p {
+				margin-bottom: 1rem;
 			}
 		}
 	}

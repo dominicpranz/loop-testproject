@@ -1,16 +1,27 @@
 @use "../config/variables.scss" as *;
 
 .news-section {
-	display: grid;
+	/*display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: auto;
 	grid-template-areas:
 		"news-card-small news-card-small news-card-big news-card-big"
 		"news-card-image news-card-image news-card-big news-card-big"
-		"news-card-image news-card-image news-card-image news-card-image";
+		"news-card-image news-card-image news-card-image news-card-image";*/
+	padding: $clip-path-distance 0 0;
+	display: flex;
+	flex-wrap: wrap;
+
+	@media ($breakpoint-desktop-up) {
+		padding: $clip-path-distance-lg 0 0;
+	}
 
 	.news-card {
+		position: relative;
+		display: inline-block;
 		border: 2px solid pink;
+		width: 25%;
+		height: auto;
 
 		&.news-card--small {
 			grid-area: news-card-small;

@@ -1,26 +1,29 @@
 @use "../config/variables.scss" as *;
 
 footer {
-	$footer-padding-top: 50px;
+	$clip-path-distance: 40px;
+	$clip-path-distance-lg: 70px;
+	$padding-y: 30px;
+
+	clip-path: polygon(50% 0%, 100% $clip-path-distance, 100% 100%, 0 100%, 0% $clip-path-distance);
+	margin-top: -$clip-path-distance;
+	padding: calc(#{$clip-path-distance} + #{$padding-y}) $side-gap-mobile ($padding-y);
 
 	background-color: $color-lightgray;
-	background-color: lightseagreen;
-	clip-path: polygon(50% 0%, 100% $footer-padding-top, 100% 100%, 0 100%, 0% $footer-padding-top);
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
 	font-size: $font-size-mobile-small;
-	padding: ($footer-padding-top * 1.5) $side-gap-mobile ($footer-padding-top / 2);
-	height: calc(375px - #{$footer-padding-top});
 
 	@media ($breakpoint-desktop-up) {
+		clip-path: polygon(50% 0%, 100% $clip-path-distance-lg, 100% 100%, 0 100%, 0% $clip-path-distance-lg);
+		margin-top: -$clip-path-distance-lg;
+		padding: calc(#{$clip-path-distance-lg} + #{$padding-y}) $side-gap-mobile ($padding-y);
+
 		flex-direction: row;
 		justify-content: space-between;
 		font-size: $font-size-desktop-small;
-
-		padding: $footer-padding-top $side-gap-desktop ($footer-padding-top / 2);
-		height: calc(175px - #{$footer-padding-top});
 	}
 
 	.footer__copyright,

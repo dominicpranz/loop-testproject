@@ -1,10 +1,10 @@
 @use "../config/variables.scss" as *;
 
 .hero-section {
-	padding-top: $nav-height-mobile;
+	margin: 0 auto (-$clip-path-distance);
+	padding: $nav-height-mobile $side-gap-mobile 0;
 	height: 100vh;
-	//background-color: lightgreen;
-	clip-path: polygon(0 0, 100% 0, 100% 89%, 50% 100%, 0 89%);
+	clip-path: polygon(0 0, 100% 0, 100% calc(100% - #{$clip-path-distance}), 50% 100%, 0 calc(100% - #{$clip-path-distance}));
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
@@ -14,7 +14,9 @@
 	background-position: center;
 
 	@media ($breakpoint-desktop-up) {
-		padding-top: $nav-height-desktop;
+		margin: 0 auto (-$clip-path-distance-lg);
+		padding: $nav-height-desktop 0 0;
+		clip-path: polygon(0 0, 100% 0, 100% calc(100% - #{$clip-path-distance-lg}), 50% 100%, 0 calc(100% - #{$clip-path-distance-lg}));
 		height: 780px;
 	}
 
@@ -46,7 +48,9 @@
 		}
 
 		h1 {
+			margin-bottom: 1rem;
 			color: $color-accent;
+			line-height: 1.2;
 		}
 	}
 }

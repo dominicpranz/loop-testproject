@@ -17,12 +17,19 @@
 <body>
 
 	<nav class="nav-top container">
-		<ul class="nav-top__menu-area">
-			<li><a href="#about-us">About us</a></li>
-			<li><a href="#gallery">Gallery</a></li>
-			<li><a href="#team">Team</a></li>
-			<li><a href="#contact">Contact</a></li>
-		</ul>
+		<div class="nav-top__menu-area">
+			<span class="burger-icon opened">
+				<span class="line"></span>
+				<span class="line"></span>
+				<span class="line"></span>
+			</span>
+			<ul class="nav-top__menu">
+				<li><a href="#about-us">About us</a></li>
+				<li><a href="#gallery">Gallery</a></li>
+				<li><a href="#team">Team</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</div>
 		<div class="nav-top__logo-area">
 			<div class="nav-top__logo main-logo"></div>
 		</div>
@@ -199,45 +206,56 @@
 			</header>
 
 			<div class="about-us-section__columns">
-				<p class="about-us-section__column-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus convallis nec elit tincidunt maximus. Morbi in
-					justo
-					vel diam lobortis elementum. Curabitur nec purus id turpis dictum tincidunt. Aenean accumsan neque sed molestie eleifend. Suspendisse consequat magna
-					ut
-					ex
-					tempus, vitae posuere risus interdum. Morbi pretium eget diam et pharetra. Fusce vestibulum tortor et ligula tempor, eget interdum ipsum mattis. Proin
-					vitae
-					tristique metus. Nam porttitor a ante vitae congue. Integer fermentum iaculis justo sit amet facilisis. Duis suscipit eleifend
-					purus quis rutrum.
-
-					Suspendisse sem velit, mattis a pharetra quis, ultricies non metus. Phasellus enim massa, maximus ac elit in, facilisis ultrices orci. Donec convallis
-					nisl
-					nec quam consectetur, eu tempus tellus laoreet. Nunc vel pellentesque turpis, a imperdiet urna. Donec varius blandit metus, ut faucibus nisl
-					vestibulum
-					vitae. Donec ac sapien lobortis, ornare neque sodales, suscipit diam. Donec mollis commodo enim eget tristique. Suspendisse ultricies dictum aliquam.
-					Mauris
-					tincidunt finibus nisl, auctor laoreet magna suscipit et. Sed sagittis condimentum justo, sit amet sagittis augue porta id. Quisque in nisi in ante
-					posuere
-					mattis. Praesent at mi vitae metus bibendum dictum interdum in metus. Nullam ex lacus, tincidunt sit amet lorem sit amet, commodo tristique leo.
-					Phasellus
-					sed semper quam.</p>
-				<p class="about-us-section__column-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus convallis nec elit tincidunt maximus. Morbi in
-					justo
-					vel diam lobortis elementum. Curabitur nec purus id turpis dictum tincidunt. Aenean accumsan neque sed molestie eleifend. Suspendisse consequat magna
-					ut
-					ex
-					tempus, vitae posuere risus interdum. Morbi pretium eget diam et pharetra. Fusce vestibulum tortor et ligula tempor, eget interdum ipsum mattis. Proin
-					vitae
-					tristique metus. Nam porttitor a ante vitae congue. Donec sit amet massa vel ante luctus ultrices. In luctus, turpis quis tempor dignissim, purus dui
-					tincidunt felis, et condimentum tellus purus non erat. Suspendisse ut lacus diam. Integer fermentum iaculis justo sit amet facilisis. Duis suscipit
-					eleifend
-					purus quis rutrum.
-
-					Suspendisse sem velit, mattis a pharetra quis, ultricies non metus. Phasellus enim massa, maximus ac elit in, facilisis ultrices orci. Donec convallis
-					nisl
-					nec quam consectetur, eu tempus tellus laoreet. Sed sagittis condimentum justo, sit amet sagittis augue porta id. Quisque in nisi in ante posuere
-					mattis. Praesent at mi vitae metus bibendum dictum interdum in metus. Nullam ex lacus, tincidunt sit amet lorem sit amet, commodo tristique leo.
-					Phasellus
-					sed semper quam.</p>
+				<div class="about-us-section__column-1">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus convallis nec elit tincidunt maximus. Morbi in
+						justo
+						vel diam lobortis elementum. Curabitur nec purus id turpis dictum tincidunt. Aenean accumsan neque sed molestie eleifend. Suspendisse consequat
+						magna
+						ut
+						ex
+						tempus, vitae posuere risus interdum.</p>
+					<p>Morbi pretium eget diam et pharetra. Fusce vestibulum tortor et ligula tempor, eget interdum ipsum mattis. Proin
+						vitae
+						tristique metus. Nam porttitor a ante vitae congue. Integer fermentum iaculis justo sit amet facilisis. Duis suscipit eleifend
+						purus quis rutrum.</p>
+					<p>Suspendisse sem velit, mattis a pharetra quis, ultricies non metus. Phasellus enim massa, maximus ac elit in, facilisis ultrices orci. Donec
+						convallis
+						nisl
+						nec quam consectetur, eu tempus tellus laoreet. Nunc vel pellentesque turpis, a imperdiet urna. Donec varius blandit metus, ut faucibus nisl
+						vestibulum
+						vitae. Donec ac sapien lobortis, ornare neque sodales, suscipit diam. Donec mollis commodo enim eget tristique. Suspendisse ultricies dictum
+						aliquam.
+						Mauris
+						tincidunt finibus nisl, auctor laoreet magna suscipit et. Sed sagittis condimentum justo, sit amet sagittis augue porta id. Quisque in nisi in ante
+						posuere
+						mattis. Praesent at mi vitae metus bibendum dictum interdum in metus. Nullam ex lacus, tincidunt sit amet lorem sit amet, commodo tristique leo.
+						Phasellus
+						sed semper quam.</p>
+				</div>
+				<div class="about-us-section__column-2">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus convallis nec elit tincidunt maximus. Morbi in
+						justo
+						vel diam lobortis elementum. Curabitur nec purus id turpis dictum tincidunt. Aenean accumsan neque sed molestie eleifend. Suspendisse consequat
+						magna
+						ut
+						ex
+						tempus, vitae posuere risus interdum. Morbi pretium eget diam et pharetra. Fusce vestibulum tortor et ligula tempor, eget interdum ipsum mattis.
+						Proin
+						vitae
+						tristique metus. Nam porttitor a ante vitae congue. Donec sit amet massa vel ante luctus ultrices. In luctus, turpis quis tempor dignissim, purus
+						dui
+						tincidunt felis, et condimentum tellus purus non erat. Suspendisse ut lacus diam. Integer fermentum iaculis justo sit amet facilisis. Duis suscipit
+						eleifend
+						purus quis rutrum.</p>
+					<p>
+						Suspendisse sem velit, mattis a pharetra quis, ultricies non metus. Phasellus enim massa, maximus ac elit in, facilisis ultrices orci. Donec
+						convallis
+						nisl
+						nec quam consectetur, eu tempus tellus laoreet. Sed sagittis condimentum justo, sit amet sagittis augue porta id. Quisque in nisi in ante posuere
+						mattis. Praesent at mi vitae metus bibendum dictum interdum in metus. Nullam ex lacus, tincidunt sit amet lorem sit amet, commodo tristique leo.
+						Phasellus
+						sed semper quam.</p>
+				</div>
 			</div>
 
 			<div class="about-us-section__image-timeline">
@@ -313,16 +331,20 @@
 							<label for="message">Nachricht</label>
 						</div>
 
-						<input type="submit" value="Absenden">
+						<div class="submit-wrapper">
+							<input type="submit" value="Absenden">
+						</div>
 					</form>
 				</div>
 			</div>
 
 			<div class="contact-section__sponsors">
-				<div class="contact-logo"></div>
-				<div class="contact-logo"></div>
-				<div class="contact-logo"></div>
-				<div class="contact-logo"></div>
+				<div class="logo-wrapper">
+					<div class="contact-logo"></div>
+					<div class="contact-logo"></div>
+					<div class="contact-logo"></div>
+					<div class="contact-logo"></div>
+				</div>
 			</div>
 		</section>
 	</main>

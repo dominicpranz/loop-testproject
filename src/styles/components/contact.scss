@@ -9,12 +9,25 @@
 	}
 
 	&__form {
+		padding: $clip-path-distance-team $side-gap-mobile 0;
 		flex: 1 1;
 		background-color: $color-white;
 
+		@media ($breakpoint-desktop-up) {
+			padding-bottom: $clip-path-distance-lg;
+		}
+
 		.form-wrapper {
-			margin: 0 auto;
+			margin: $gap-y auto;
 			max-width: 430px;
+
+			h3 {
+				margin-bottom: 0.5rem;
+			}
+
+			.subtitle {
+				margin-bottom: 1rem;
+			}
 
 			form {
 				width: 100%;
@@ -61,7 +74,7 @@
 
 				input[type="submit"] {
 					flex: 0 1 auto;
-					padding: 1rem;
+					padding: 1rem 1.5rem;
 					border: 2px solid $color-black;
 					color: $color-black;
 					font-weight: $font-weight-bold;
@@ -73,32 +86,48 @@
 	}
 
 	&__sponsors {
+		padding: 0 $side-gap-mobile $clip-path-distance;
 		flex: 1 1;
 		background-color: $color-black;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
+		display: inline-flex;
+		justify-content: space-around;
 		align-items: center;
 
 		@media ($breakpoint-desktop-up) {
-			flex-wrap: wrap;
+			padding-bottom: $clip-path-distance-lg;
 		}
 
-		.contact-logo {
-			display: inline-block !important;
-			flex: 1 1;
-			flex-basis: 100%;
-			background-color: pink;
-
-			&::before {
-				content: "";
-				display: inline-block;
-				$ratio: 220/100;
-				padding-bottom: 100% / $ratio;
-			}
+		.logo-wrapper {
+			display: flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
 
 			@media ($breakpoint-desktop-up) {
-				flex-basis: 50%;
+				flex-direction: row;
+			}
+
+			.contact-logo {
+				margin: ($gap-y / 2) 0;
+				flex: 0 auto;
+				display: inline-flex;
+				border: 1px solid pink;
+				width: 100%;
+				max-width: 250px;
+				flex-basis: calc(50% - 100px);
+
+				@media ($breakpoint-desktop-up) {
+					margin: $gap-y;
+				}
+
+				&::before {
+					content: "";
+					display: inline-block;
+					$ratio: 230/116;
+					padding-bottom: 100% / $ratio;
+				}
 			}
 		}
 	}
