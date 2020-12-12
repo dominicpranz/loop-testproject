@@ -113,10 +113,17 @@
 				margin: ($gap-y / 2) 0;
 				flex: 0 auto;
 				display: inline-flex;
-				border: 1px solid pink;
 				width: 100%;
 				max-width: 250px;
 				flex-basis: calc(50% - 100px);
+				background-image: url("#{$image-path}/background/christmas2.webp");
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+
+				&:nth-of-type(even) {
+					background-image: url("#{$image-path}/background/christmas3.webp");
+				}
 
 				@media ($breakpoint-desktop-up) {
 					margin: $gap-y;

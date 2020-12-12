@@ -1,4 +1,5 @@
 @use "../config/variables.scss" as *;
+@use "../config/mixins.scss" as *;
 
 .nav-top {
 	position: fixed;
@@ -14,65 +15,11 @@
 		height: $nav-height-desktop;
 	}
 
-	.burger-icon {
-		position: relative;
-		display: inline-block;
-		width: 40px;
-		height: 100%;
-		cursor: pointer;
-		z-index: $z-index-navigation;
-
-		@media ($breakpoint-desktop-up) {
-			display: none;
-		}
-
-		.line {
-			$burger-icon-line-height: 2px;
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: $burger-icon-line-height;
-			width: 100%;
-			background-color: $color-black;
-			transition-property: transform, opacity, width;
-			transition-duration: $anim-speed-fast;
-			transition-timing-function: $timing-function-default;
-			transform-origin: center;
-			transform: translateY(-50%);
-
-			&:nth-of-type(1) {
-				top: $burger-icon-line-height;
-			}
-			&:nth-of-type(2) {
-				top: 50%;
-			}
-			&:nth-of-type(3) {
-				top: calc(100% - #{$burger-icon-line-height});
-			}
-		}
-
-		&.opened {
-			.line {
-				&:nth-of-type(1) {
-					transform: translateY(16px) rotate(-45deg);
-					top: -2px;
-					width: 80%;
-				}
-				&:nth-of-type(2) {
-					opacity: 0;
-				}
-				&:nth-of-type(3) {
-					transform: translateY(-14px) rotate(45deg);
-					top: calc(100% - 2px);
-					width: 80%;
-				}
-			}
-		}
-	}
-
 	.nav-top__menu-area {
 		padding: 10px $side-gap-mobile;
 		flex-basis: (100% / 2);
+		display: flex;
+		align-items: center;
 		background-color: $color-white;
 		z-index: $z-index-navigation;
 
@@ -120,12 +67,69 @@
 
 			li {
 				display: inline-block;
+				@include animated-unterline();
 
 				&:not(:last-of-type) {
 					margin: 0 0 1rem;
 
 					@media ($breakpoint-desktop-up) {
 						margin: 0 $side-gap-desktop 0 0;
+					}
+				}
+			}
+		}
+
+		.burger-icon {
+			position: relative;
+			display: inline-block;
+			width: 40px;
+			height: 100%;
+			cursor: pointer;
+			z-index: $z-index-navigation;
+
+			@media ($breakpoint-desktop-up) {
+				display: none;
+			}
+
+			.line {
+				$burger-icon-line-height: 2px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: $burger-icon-line-height;
+				width: 100%;
+				background-color: $color-black;
+				transition-property: transform, opacity, width;
+				transition-duration: $anim-speed-fast;
+				transition-timing-function: $timing-function-default;
+				transform-origin: center;
+				transform: translateY(-50%);
+
+				&:nth-of-type(1) {
+					top: calc(#{$burger-icon-line-height} + 10%);
+				}
+				&:nth-of-type(2) {
+					top: 50%;
+				}
+				&:nth-of-type(3) {
+					top: calc(100% - #{$burger-icon-line-height} - 10%);
+				}
+			}
+
+			&.opened {
+				.line {
+					&:nth-of-type(1) {
+						transform: translateY(14px) rotate(-45deg);
+						top: -2px;
+						width: 80%;
+					}
+					&:nth-of-type(2) {
+						opacity: 0;
+					}
+					&:nth-of-type(3) {
+						transform: translateY(-15px) rotate(45deg);
+						top: calc(100% - 2px);
+						width: 80%;
 					}
 				}
 			}

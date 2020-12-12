@@ -1,0 +1,25 @@
+// custom mixins
+
+@use "../config/variables.scss" as *;
+
+@mixin animated-unterline() {
+	position: relative;
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 100%;
+		left: 0;
+		height: 2px;
+		width: 0;
+		background-color: $color-black;
+		transition: width $anim-speed-default $timing-function-default;
+	}
+
+	&:hover,
+	&.active {
+		&::after {
+			width: 100%;
+		}
+	}
+}
