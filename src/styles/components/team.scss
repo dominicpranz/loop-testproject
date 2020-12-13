@@ -24,30 +24,111 @@
 	.team-section__cards {
 		display: flex;
 		flex-wrap: wrap;
+		flex-direction: column;
+		align-items: center;
 		margin-bottom: $gap-y;
 
-		.team-section__card {
-			$cards-per-row: 5;
+		@media ($sm-up) {
+			flex-direction: row;
+		}
 
+		.team-section__card {
 			position: relative;
 			background-color: $color-lightgray;
 			display: inline-block;
 			width: 100%;
+			max-width: 350px;
 			background-color: $color-lightgray;
 			color: $color-black;
-			z-index: -1;
+			z-index: 0;
 
-			@media ($breakpoint-desktop-up) {
+			// TODO: try this with custom properties to be updateable per js and avod repitition in css
+			@media (min-width: #{$sm}px) and (max-width: #{($lg - 1)}px) {
+				$cards-per-row: 2;
+				$rows: 10;
+
+				max-width: none;
 				width: calc(100% / #{$cards-per-row});
+
+				&:hover,
+				.hover {
+					//z-index: 3; // this works on all cards but prevents the fadeout to be visible
+
+					.team-section__card__content {
+						left: 100%;
+					}
+				}
+
+				&:nth-child(#{$cards-per-row}n) {
+					.team-section__card__content {
+						left: auto;
+						right: 0;
+					}
+
+					&:hover,
+					.hover {
+						.team-section__card__content {
+							right: 100%;
+						}
+					}
+				}
+
+				// this is a workaround to show the card fadout on all cards
+				// it only works with as many rows as you set here though, so this can be improved
+				$team-cards: ($cards-per-row * $rows);
+				@for $i from 1 through $team-cards {
+					&:nth-child(#{$i}) {
+						z-index: $team-cards - $i;
+					}
+					&:nth-child(#{$cards-per-row}n) {
+						&:hover,
+						.hover {
+							z-index: $i;
+						}
+					}
+				}
 			}
 
-			@for $i from 1 through $cards-per-row {
-				&:nth-child(#{$i}) {
-					z-index: $cards-per-row - $i;
+			@media ($breakpoint-desktop-up) {
+				// repeat the idea from the previous breakpoint
+				$cards-per-row: 5;
+				$rows: 4;
+
+				width: calc(100% / #{$cards-per-row});
+
+				&:hover,
+				.hover {
+					//z-index: 3; // this works on all cards but prevents the fadeout to be visible
+
+					.team-section__card__content {
+						left: 100%;
+					}
 				}
-				&:nth-child(#{$cards-per-row}) {
-					&:hover {
-						z-index: $i;
+
+				&:nth-child(#{$cards-per-row}n) {
+					.team-section__card__content {
+						left: auto;
+						right: 0;
+					}
+
+					&:hover,
+					.hover {
+						.team-section__card__content {
+							right: 100%;
+						}
+					}
+				}
+
+				$team-cards: ($cards-per-row * $rows);
+				@for $i from 1 through $team-cards {
+					&:nth-child(#{$i}) {
+						z-index: $team-cards - $i;
+					}
+					&:nth-child(#{$cards-per-row}n) {
+						&:hover,
+						.hover {
+							z-index: $i;
+						}
 					}
 				}
 			}
@@ -75,10 +156,15 @@
 				justify-content: flex-end;
 				padding: 2rem;
 				background-color: $color-lightgray;
-				transition-property: left, right;
+				transition-property: left, right, opacity;
 				transition-duration: $anim-speed-default;
 				transition-timing-function: $timing-function-default;
 				pointer-events: none;
+				opacity: 0;
+
+				@media ($sm-up) {
+					opacity: 1;
+				}
 
 				.subtitle {
 					text-transform: uppercase;
@@ -86,23 +172,12 @@
 				}
 			}
 
-			&:hover {
-				z-index: 3;
-
-				.team-section__card__content {
-					left: 100%;
-				}
-			}
-
-			&:nth-child(#{$cards-per-row}) {
-				.team-section__card__content {
-					left: auto;
-					right: 0;
-				}
-
-				&:hover {
+			// on mobile toggle the card content by click
+			@media (max-width: #{($sm - 1)}px) {
+				&.clicked {
 					.team-section__card__content {
-						right: 100%;
+						opacity: 0.8;
+						z-index: 3;
 					}
 				}
 			}

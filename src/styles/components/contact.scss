@@ -132,7 +132,7 @@
 				flex: 0 auto;
 				display: inline-flex;
 				width: 100%;
-				max-width: 250px;
+				max-width: 350px;
 				flex-basis: calc(50% - 100px);
 				background-image: url("#{$image-path}/background/christmas2.webp");
 				background-repeat: no-repeat;
@@ -145,6 +145,7 @@
 
 				@media ($breakpoint-desktop-up) {
 					margin: $gap-y;
+					max-width: 250px;
 				}
 
 				&::before {

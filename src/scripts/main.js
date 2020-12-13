@@ -19,4 +19,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
 	navMenu.querySelectorAll("a").forEach((navLink) => {
 		navLink.addEventListener("click", toggleNav);
 	});
+
+	// toggle team section cards content on click on mobile
+	document.querySelectorAll(".team-section__card").forEach((teamSectionCard) => {
+		teamSectionCard.addEventListener("click", () => {
+			teamSectionCard.classList.toggle("clicked");
+		});
+	});
 });
