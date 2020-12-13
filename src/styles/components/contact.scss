@@ -90,11 +90,21 @@
 		flex: 1 1;
 		background-color: $color-black;
 		display: inline-flex;
+		flex-direction: column;
 		justify-content: space-around;
 		align-items: center;
 
 		@media ($breakpoint-desktop-up) {
 			padding-bottom: $clip-path-distance-lg;
+		}
+
+		h3 {
+			margin: $gap-y 0 ($gap-y / 2);
+			color: $color-white;
+
+			@media ($breakpoint-desktop-up) {
+				display: none;
+			}
 		}
 
 		.logo-wrapper {

@@ -1,8 +1,9 @@
 @use "../config/variables.scss" as *;
 
 .hero-section {
+	position: relative;
 	margin: 0 auto (-$clip-path-distance);
-	padding: $nav-height-mobile $side-gap-mobile 0;
+	padding: $nav-height-mobile 0 0;
 	height: 100vh;
 	clip-path: polygon(0 0, 100% 0, 100% calc(100% - #{$clip-path-distance}), 50% 100%, 0 calc(100% - #{$clip-path-distance}));
 	display: flex;
@@ -12,6 +13,7 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
+	z-index: $z-index-hero-section;
 
 	@media ($breakpoint-desktop-up) {
 		margin: 0 auto (-$clip-path-distance-lg);
@@ -22,6 +24,7 @@
 
 	.hero-section__text {
 		position: relative;
+		padding: 0 $side-gap-mobile;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -29,6 +32,11 @@
 		text-align: center;
 		text-transform: uppercase;
 		overflow: hidden;
+
+		@media ($breakpoint-desktop-up) {
+			max-width: 40%;
+			padding: 0;
+		}
 
 		&::before {
 			content: "";
@@ -43,10 +51,6 @@
 			background-size: contain;
 			background-position: center;
 			z-index: -1;
-		}
-
-		@media ($breakpoint-desktop-up) {
-			max-width: 40%;
 		}
 
 		h1 {

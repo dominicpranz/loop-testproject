@@ -42,6 +42,7 @@
 			align-items: center;
 
 			list-style: none;
+			font-size: $font-size-mobile-subtitle;
 			font-weight: $font-weight-bold;
 			text-transform: uppercase;
 			background-color: $color-white;
@@ -63,6 +64,7 @@
 				width: auto;
 				opacity: 1;
 				pointer-events: auto;
+				font-size: $font-size-mobile;
 			}
 
 			li {

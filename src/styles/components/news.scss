@@ -5,16 +5,6 @@
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: minmax(360px, auto) repeat(3, minmax(280px, 1fr));
-	/*grid-template-areas:
-		"news-card-small news-card-small news-card-big news-card-big"
-		"news-card-image news-card-image news-card-big news-card-big"
-		"news-card-image news-card-image news-card-image news-card-image"
-		"news-card-gallery news-card-gallery news-card-dates news-card-dates";
-	grid-template-areas:
-		"news-card-small ."
-		"news-card-small ."
-		". ."
-		". .";*/
 
 	@media ($breakpoint-desktop-up) {
 		margin-top: -$clip-path-distance-lg;
@@ -28,6 +18,7 @@
 		justify-content: flex-end;
 		background-color: $color-lightgray;
 		overflow: hidden;
+		cursor: pointer;
 
 		&::before {
 			// add background-images as pseudo element
@@ -44,13 +35,7 @@
 		}
 
 		& > * {
-			z-index: 1;
-		}
-
-		&:nth-child(1) {
-			@media ($breakpoint-desktop-up) {
-				border-left: 1px solid $color-white;
-			}
+			z-index: 1; // put elements over the background image
 		}
 
 		&:nth-child(1),
@@ -73,6 +58,12 @@
 					background-position: center;
 					background-size: contain;
 				}
+			}
+		}
+
+		&:nth-child(1) {
+			@media ($breakpoint-desktop-up) {
+				border-left: 1px solid $color-white;
 			}
 		}
 
@@ -109,12 +100,12 @@
 		&:nth-child(7) {
 			&::before {
 				transition: transform $anim-speed-default $timing-function-default;
-				transform: rotate(2deg) scale(1.05);
+				transform: scale(1.1);
 			}
 
 			&:hover {
 				&::before {
-					transform: rotate(0deg) scale(1);
+					transform: scale(1);
 				}
 			}
 		}
@@ -214,26 +205,6 @@
 			&:nth-child(9) {
 				grid-area: 4 / 3 / span 1 / span 2;
 			}
-		}
-
-		&.news-card--small {
-			//grid-area: news-card-small;
-		}
-
-		&.news-card--big {
-			//grid-area: news-card-big;
-		}
-
-		&.news-card--image {
-			//grid-area: news-card-image;
-		}
-
-		&.news-card--gallery {
-			//grid-area: news-card-gallery;
-		}
-
-		&.news-card--dates {
-			//grid-area: news-card-dates;
 		}
 
 		time,
