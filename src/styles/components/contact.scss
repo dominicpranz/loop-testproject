@@ -80,6 +80,14 @@
 					font-weight: $font-weight-bold;
 					text-transform: uppercase;
 					cursor: pointer;
+					transition-property: background-color, color;
+					transition-duration: $anim-speed-fast;
+					transition-timing-function: $timing-function-default;
+
+					&:hover {
+						background-color: $color-black;
+						color: $color-white;
+					}
 				}
 			}
 		}

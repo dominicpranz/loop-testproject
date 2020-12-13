@@ -32,17 +32,23 @@
 			position: relative;
 			background-color: $color-lightgray;
 			display: inline-block;
-			width: calc(100% / #{$cards-per-row});
+			width: 100%;
 			background-color: $color-lightgray;
 			color: $color-black;
-			z-index: 2;
+			z-index: -1;
+
+			@media ($breakpoint-desktop-up) {
+				width: calc(100% / #{$cards-per-row});
+			}
 
 			@for $i from 1 through $cards-per-row {
 				&:nth-child(#{$i}) {
 					z-index: $cards-per-row - $i;
 				}
 				&:nth-child(#{$cards-per-row}) {
-					z-index: $i;
+					&:hover {
+						z-index: $i;
+					}
 				}
 			}
 
@@ -70,7 +76,7 @@
 				padding: 2rem;
 				background-color: $color-lightgray;
 				transition-property: left, right;
-				transition-duration: 1s;
+				transition-duration: $anim-speed-default;
 				transition-timing-function: $timing-function-default;
 				pointer-events: none;
 
@@ -81,13 +87,14 @@
 			}
 
 			&:hover {
+				z-index: 3;
+
 				.team-section__card__content {
 					left: 100%;
 				}
 			}
 
-			&:nth-child(#{$cards-per-row}),
-			&:nth-child(#{$cards-per-row - 1}) {
+			&:nth-child(#{$cards-per-row}) {
 				.team-section__card__content {
 					left: auto;
 					right: 0;
