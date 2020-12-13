@@ -6,6 +6,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 	const navMenu = document.querySelector(".nav-top__menu");
 	const bodyElement = document.querySelector("body");
 	const toggleNav = () => {
+		// TODO: dont toggle on desktop
 		burgerIcon.classList.toggle("opened");
 		navMenu.classList.toggle("opened");
 		bodyElement.classList.toggle("prevent-scrolling");

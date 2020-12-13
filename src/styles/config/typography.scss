@@ -10,13 +10,17 @@ html {
 
 body {
 	font-family: $font-family-default;
-	font-size: 1rem;
-	line-height: 1.4;
+	font-size: $font-size-mobile;
+	line-height: $line-height-default;
 	overflow-wrap: break-word;
 	hyphens: auto;
 
 	@media ($breakpoint-down-responsive-font-sizes) {
 		font-size: 5vw;
+	}
+
+	@media ($breakpoint-desktop-up) {
+		font-size: $font-size-desktop;
 	}
 }
 
@@ -87,4 +91,12 @@ h6,
 	@media ($breakpoint-desktop-up) {
 		font-size: $font-size-desktop-subtitle;
 	}
+}
+
+.color-accent {
+	color: $color-accent;
+}
+
+.bold {
+	font-weight: $font-weight-bold;
 }
