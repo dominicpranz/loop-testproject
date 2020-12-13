@@ -1,19 +1,123 @@
 @use "../../config/variables.scss" as *;
 
 .custom-modals {
-	z-index: $z-index-modals;
+	$sidebar-width: $side-gap-desktop * 2;
+
+	margin: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
 	opacity: 0;
 	pointer-events: none;
+	background-color: rgba(0, 0, 0, 0.2);
 	transition: opacity $anim-speed-fast $timing-function-default;
+	z-index: $z-index-modals;
+	overflow: auto;
+	clip-path: polygon(50% #{$nav-height-mobile}, 100% #{$nav-height-mobile}, 100% 100%, 0 100%, 0 0, 50% 0);
 
-	&.custom-modals--open {
+	@media ($breakpoint-desktop-up) {
+		// cut out the logo area in the background
+		$space-left-of-logo: calc(100% - (100% - #{$max-width-desktop}) / 2);
+		clip-path: polygon(
+			50% 0,
+			50% #{$nav-height-desktop},
+			#{$space-left-of-logo} #{$nav-height-desktop},
+			#{$space-left-of-logo} 0,
+			100% 0,
+			100% 100%,
+			0 100%,
+			0 0
+		);
+	}
+
+	&.opened {
 		opacity: 1;
 		pointer-events: auto;
 	}
 
-	.custom-modal {
-		&:not(.custom-modal--open) {
-			display: none;
+	.custom-modals-container {
+		// note: this has the height of the screen, but elements inside it still expand further
+		position: relative;
+		display: inline-block;
+		padding-top: $nav-height-mobile;
+		height: auto;
+		min-height: 200px;
+		width: 100%;
+		max-width: 100%;
+		background-color: $color-white;
+
+		@media ($breakpoint-desktop-up) {
+			padding-top: $nav-height-desktop;
+			width: calc(#{$max-width-desktop} - #{$sidebar-width} * 2);
+			overflow: visible; // show sidebar
+		}
+
+		.custom-modals__sidebar {
+			position: relative;
+			height: $nav-height-mobile;
+			width: auto;
+			display: flex;
+			// -- alternate fixed styles instead of relative
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 50%;
+			// --
+
+			@media ($breakpoint-desktop-up) {
+				position: absolute;
+				top: auto;
+				left: 100%;
+				height: auto;
+				width: $sidebar-width;
+				flex-direction: column;
+			}
+
+			.custom-modals__button {
+				flex: 0 1 100px;
+				width: 100%;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 25%;
+				background-color: $color-white;
+
+				@media ($breakpoint-desktop-up) {
+					flex: 1 1 auto;
+				}
+
+				&::before {
+					content: "";
+					display: inline-block;
+					$ratio: 1/1;
+					padding-bottom: 100% / $ratio;
+				}
+
+				&--close {
+					background-color: $color-lightgray;
+					cursor: pointer;
+					background-image: url("#{$image-path}/icons/cross-sign.svg");
+				}
+
+				&--twitter {
+					background-image: url("#{$image-path}/icons/twitter.svg");
+				}
+
+				&--facebook {
+					background-image: url("#{$image-path}/icons/facebook.svg");
+				}
+			}
+		}
+
+		.custom-modal {
+			background-color: inherit;
+
+			&:not(.opened) {
+				display: none;
+			}
 		}
 	}
 }

@@ -6,6 +6,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 	const burgerIcon = document.querySelector(".burger-icon");
 	const navMenu = document.querySelector(".nav-top__menu");
 	const bodyElement = document.querySelector("body");
+
 	const toggleNav = () => {
 		if (window.matchMedia("(min-width: 1024px)").matches) return; // match with burger-menu breakpoint
 		burgerIcon.classList.toggle("opened");
@@ -24,6 +25,33 @@ window.addEventListener("DOMContentLoaded", (event) => {
 	document.querySelectorAll(".team-section__card").forEach((teamSectionCard) => {
 		teamSectionCard.addEventListener("click", () => {
 			teamSectionCard.classList.toggle("clicked");
+		});
+	});
+
+	// toggle modals on news-card click
+	document.querySelectorAll(".news-card").forEach((newsCard) => {
+		newsCard.addEventListener("click", (e) => {
+			e.preventDefault();
+
+			document.querySelector(".custom-modals").classList.add("opened");
+			bodyElement.classList.add("prevent-scrolling");
+
+			if (newsCard.classList.contains("news-card--dates")) {
+				document.querySelector(".dates-modal").classList.add("opened");
+			} else {
+				document.querySelector(".news-modal").classList.add("opened");
+			}
+		});
+	});
+
+	document.querySelector(".custom-modals__button--close").addEventListener("click", (e) => {
+		e.preventDefault();
+
+		document.querySelector(".custom-modals").classList.remove("opened");
+		bodyElement.classList.remove("prevent-scrolling");
+
+		document.querySelectorAll(".custom-modal").forEach((customModal) => {
+			customModal.classList.remove("opened");
 		});
 	});
 });
