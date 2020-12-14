@@ -1,7 +1,7 @@
 @use "../config/variables.scss" as *;
 
 .about-us-section {
-	padding: 0 $side-gap-mobile;
+	padding: $gap-y $side-gap-mobile 0;
 
 	.about-us-section__columns {
 		display: flex;
