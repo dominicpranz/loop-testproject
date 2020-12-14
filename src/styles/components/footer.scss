@@ -57,12 +57,22 @@ footer {
 
 		a {
 			display: inline-block;
-			background-color: pink;
 			height: 2rem;
 			width: 2rem;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
 
 			&:not(:last-of-type) {
 				margin-right: 0.5rem;
+			}
+
+			&.socials--twitter {
+				background-image: url("#{$image-path}/icons/twitter.svg");
+			}
+
+			&.socials--facebook {
+				background-image: url("#{$image-path}/icons/facebook.svg");
 			}
 		}
 	}
