@@ -45,7 +45,7 @@
 					input[type="email"],
 					textarea {
 						width: 100%;
-						color: $color-white;
+						color: $color-black;
 
 						&:focus {
 							outline: 0;
@@ -69,6 +69,7 @@
 						position: absolute;
 						top: 1rem;
 						left: 1rem;
+						display: none; // hide until we add js logic, then we can fade them in and out in a fancy way on focus/active
 					}
 				}
 
