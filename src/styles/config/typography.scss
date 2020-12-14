@@ -36,6 +36,7 @@ h6,
 .subtitle {
 	font-weight: $font-weight-bold;
 	text-transform: uppercase;
+	color: $color-black;
 }
 
 // style h1 and h2 the same, the difference should be in context for seo
@@ -90,6 +91,12 @@ h6,
 
 	@media ($breakpoint-desktop-up) {
 		font-size: $font-size-desktop-subtitle;
+	}
+}
+
+p {
+	&:not(.subtitle):not(.subtitle-big):not(.headline):not(.headline-hero) {
+		//color: $color-gray;
 	}
 }
 

@@ -39,6 +39,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "css-reset-and-normalize": "^2.3.3"
+    "css-reset-and-normalize": "^2.3.3",
+    "swiper": "^6.4.1"
   }
 }

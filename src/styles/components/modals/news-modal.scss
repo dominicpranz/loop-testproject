@@ -1,1 +1,56 @@
 @use "../../config/variables.scss" as *;
+@use "../../config/mixins.scss" as *;
+
+.news-modal {
+	&__content {
+		padding: ($gap-y / 2) $side-gap-mobile;
+		display: flex;
+		flex-direction: column;
+
+		@media ($breakpoint-desktop-up) {
+			padding: 25px 75px 50px;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+
+		&__col1,
+		&__col2 {
+			@media ($breakpoint-desktop-up) {
+				width: calc(50% - #{$gap-y} / 2);
+			}
+		}
+
+		time {
+			@include time-default-styles;
+			margin-bottom: 1rem;
+
+			@media ($breakpoint-desktop-up) {
+				margin-bottom: calc(#{$gap-y} - 15px);
+			}
+		}
+
+		h1 {
+			line-height: 1;
+			margin-bottom: 1rem;
+		}
+
+		h3 {
+			border-bottom: 1px solid $color-lightgray-4;
+			margin-bottom: ($gap-y / 2);
+			padding-bottom: 1rem;
+
+			@media ($breakpoint-desktop-up) {
+				margin-bottom: $gap-y;
+			}
+		}
+
+		p {
+			color: $color-gray-2;
+			margin-bottom: 1rem;
+		}
+	}
+
+	&__more {
+		background-color: $color-lightgray-2;
+	}
+}

@@ -2,6 +2,24 @@
 
 @use "../config/variables.scss" as *;
 
+@mixin time-default-styles() {
+	display: inline-block;
+	font-weight: $font-weight-bold;
+	color: $color-gray;
+
+	&::before {
+		content: "";
+		display: inline-block;
+		margin-right: 0.5em;
+		height: 1.8675em;
+		width: 1.8675em;
+		background-image: url("#{$image-path}/icons/calendar-gray.svg");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+	}
+}
+
 @mixin animated-unterline() {
 	position: relative;
 
