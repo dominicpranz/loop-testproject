@@ -1,7 +1,7 @@
 // webpack entry point
-console.log("index js loaded");
 
 // import styles
+import "swiper/swiper-bundle.css"; // swiper default styles
 import "../styles/index.scss";
 
 // import scripts

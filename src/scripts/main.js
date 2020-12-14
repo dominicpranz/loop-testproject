@@ -1,5 +1,58 @@
 // general script operations
 
+// imports
+import { Swiper, Navigation, Pagination, A11y } from "swiper"; // https://swiperjs.com/api/
+//import Swiper from "swiper/bundle"; // import swiper with all modules for testing
+
+// configure Swiper to use modules
+Swiper.use([Navigation, Pagination, A11y]);
+
+function initNewsSwipers() {
+	document.querySelectorAll(".news-swiper").forEach((newsSwiperElement) => {
+		const newsSwiper = new Swiper(newsSwiperElement, {
+			spaceBetween: 0,
+			loop: true,
+			navigation: {
+				nextEl: ".swiper-button-next",
+				prevEl: ".swiper-button-prev",
+			},
+			pagination: {
+				el: ".swiper-pagination",
+				type: "fraction",
+				renderFraction: function (currentClass, totalClass) {
+					return '<span class="' + currentClass + '"></span>' + "/" + '<span class="' + totalClass + '"></span>';
+				},
+			},
+		});
+	});
+}
+
+function initArticleSwipers() {
+	document.querySelectorAll(".article-swiper").forEach((articleSwiperElement) => {
+		const articleSwiper = new Swiper(articleSwiperElement, {
+			slidesPerView: 1,
+			spaceBetween: 50,
+			loop: true,
+			loopAdditionalSlides: 10, // make sure we have enough cloned slides
+			navigation: {
+				nextEl: ".swiper-button-next",
+				prevEl: ".swiper-button-prev",
+			},
+			pagination: false,
+			breakpoints: {
+				1024: {
+					slidesPerView: 4,
+				},
+			},
+		});
+	});
+}
+
+function initSwipers() {
+	initNewsSwipers();
+	initArticleSwipers();
+}
+
 // wait until dom elements are loaded
 window.addEventListener("DOMContentLoaded", (event) => {
 	// nav toggle
@@ -40,10 +93,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
 				document.querySelector(".dates-modal").classList.add("opened");
 			} else {
 				document.querySelector(".news-modal").classList.add("opened");
+				initSwipers();
 			}
 		});
 	});
 
+	// close modals with close button
 	document.querySelector(".custom-modals__button--close").addEventListener("click", (e) => {
 		e.preventDefault();
 

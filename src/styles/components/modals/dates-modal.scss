@@ -1,4 +1,76 @@
 @use "../../config/variables.scss" as *;
+@use "../../config/mixins.scss" as *;
 
 .dates-modal {
+	padding: ($gap-y / 2) $side-gap-mobile;
+
+	@media ($breakpoint-desktop-up) {
+		padding: 25px 75px 50px;
+	}
+
+	& > h1 {
+		max-width: 540px;
+	}
+
+	& > p {
+		margin-bottom: $gap-y;
+	}
+
+	table {
+		margin-bottom: $gap-y;
+		overflow: auto;
+		display: block;
+
+		@media ($breakpoint-desktop-up) {
+			display: table;
+			width: 100%;
+		}
+
+		tbody {
+			display: block;
+
+			@media ($breakpoint-desktop-up) {
+				display: table-row-group;
+			}
+
+			tr {
+				border-bottom: 1px solid $color-gray;
+				border-collapse: collapse;
+				display: flex;
+				flex-direction: column;
+
+				&:first-of-type {
+					border-top: 1px solid $color-gray;
+				}
+
+				@media ($breakpoint-desktop-up) {
+					display: table-row;
+				}
+
+				td {
+					padding: 20px;
+					color: $color-gray;
+					font-weight: $font-weight-bold;
+					text-transform: uppercase;
+
+					@media ($breakpoint-desktop-up) {
+						padding: 40px;
+
+						&:first-of-type {
+							padding-left: 0;
+						}
+					}
+
+					time {
+						@include time-default-styles;
+
+						&::before {
+							margin-right: 1rem;
+							transform: translateY(6px);
+						}
+					}
+				}
+			}
+		}
+	}
 }
