@@ -10,7 +10,9 @@
 	width: 100%;
 	height: 100%;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
 	opacity: 0;
 	pointer-events: none;
 	background-color: rgba(0, 0, 0, 0.2);
@@ -83,7 +85,9 @@
 				background-repeat: no-repeat;
 				background-position: center;
 				background-size: 25%;
-				background-color: $color-white;
+				background-color: $color-black;
+
+				mix-blend-mode: difference;
 
 				@media ($breakpoint-desktop-up) {
 					flex: 1 1 auto;
@@ -103,11 +107,11 @@
 				}
 
 				&--twitter {
-					background-image: url("#{$image-path}/icons/twitter.svg");
+					background-image: url("#{$image-path}/icons/twitter-white.svg");
 				}
 
 				&--facebook {
-					background-image: url("#{$image-path}/icons/facebook.svg");
+					background-image: url("#{$image-path}/icons/facebook-white.svg");
 				}
 			}
 		}
