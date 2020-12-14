@@ -660,5 +660,10 @@ var snowStorm = (function (window, document) {
 // add customizations here
 snowStorm.followMouse = false;
 snowStorm.freezeOnBlur = false;
-// stop snow effect if query parameter doesn't include the word "snow"
-if (!window.location.search.includes("snow")) snowStorm.stop();
+//snowStorm.vMaxX = 8;
+//snowStorm.vMaxY = 5;
+//snowStorm.flakesMaxActive = 64;
+//snowStorm.flakesMax = 128;
+snowStorm.zIndex = 1500;
+// stop snow effect if query parameter does include the word "nosnow"
+if (window.location.search.includes("nosnow")) snowStorm.stop();
