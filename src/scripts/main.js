@@ -28,15 +28,18 @@ function initNewsSwipers() {
 }
 
 function initArticleSwipers() {
-	document.querySelectorAll(".article-swiper").forEach((articleSwiperElement) => {
+	document.querySelectorAll(".article-swiper-outer").forEach((articleSwiperElementOuter) => {
+		const articleSwiperElement = articleSwiperElementOuter.querySelector(".article-swiper");
+		const swiperButtonNext = articleSwiperElementOuter.querySelector(".swiper-button-next");
+		const swiperButtonPrev = articleSwiperElementOuter.querySelector(".swiper-button-prev");
 		const articleSwiper = new Swiper(articleSwiperElement, {
 			slidesPerView: 1,
 			spaceBetween: 50,
 			loop: true,
 			loopAdditionalSlides: 10, // make sure we have enough cloned slides
 			navigation: {
-				nextEl: ".swiper-button-next",
-				prevEl: ".swiper-button-prev",
+				nextEl: swiperButtonNext,
+				prevEl: swiperButtonPrev,
 			},
 			pagination: false,
 			breakpoints: {
@@ -109,6 +112,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
 			customModal.classList.remove("opened");
 		});
 	});
+
+	// update year in the footer
+	document.querySelector(".current-year").innerHTML = new Date().getFullYear();
 
 	// validate form
 	document.querySelector("form").addEventListener("submit", (e) => {

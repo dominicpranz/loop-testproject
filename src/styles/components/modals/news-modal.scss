@@ -82,6 +82,7 @@
 
 					&::after {
 						font-size: $font-size-desktop-subtitle;
+						font-weight: bold;
 					}
 				}
 
@@ -97,50 +98,70 @@
 	}
 
 	&__more {
-		padding: ($gap-y / 2) $side-gap-mobile;
+		padding: ($gap-y / 2) 0;
 		background-color: $color-lightgray-2;
 
 		@media ($breakpoint-desktop-up) {
-			padding: 25px 75px 50px;
+			padding: 25px 0 50px;
 		}
 
 		& > .subtitle {
 			margin-bottom: 1rem;
+			padding: 0 $side-gap-mobile;
+
+			@media ($breakpoint-desktop-up) {
+				padding: 0 75px;
+			}
 		}
 
-		.article-swiper {
-			&.swiper-container {
-				.swiper-wrapper {
-					.swiper-slide {
-						width: 25%;
+		.article-swiper-outer {
+			position: relative;
+			padding: 0 $side-gap-mobile;
 
-						.swiper-image-wrapper {
-							margin-bottom: 1rem;
-							width: 100%;
-							position: relative;
-							display: inline-block;
-							$ratio: 240/150;
-							padding-bottom: (100% / $ratio);
+			@media ($breakpoint-desktop-up) {
+				padding: 0 75px;
+			}
 
-							img {
-								@include absolute-image-default-styles;
+			.article-swiper {
+				&.swiper-container {
+					.swiper-wrapper {
+						.swiper-slide {
+							width: 25%;
+
+							.swiper-image-wrapper {
+								margin-bottom: 1rem;
+								width: 100%;
+								position: relative;
+								display: inline-block;
+								$ratio: 240/150;
+								padding-bottom: (100% / $ratio);
+
+								img {
+									@include absolute-image-default-styles;
+								}
 							}
-						}
 
-						.subtitle {
-							margin-bottom: 1rem;
+							.subtitle {
+								margin-bottom: 1rem;
+							}
 						}
 					}
 				}
+			}
 
-				.swiper-button-prev,
-				.swiper-button-next {
-					width: $swiper-navigation-button-size;
-					height: $swiper-navigation-button-size;
+			.swiper-button-prev,
+			.swiper-button-next {
+				width: $swiper-navigation-button-size;
+				height: $swiper-navigation-button-size;
+				background-color: rgba(255, 255, 255, 0.6);
 
-					&::after {
-						font-size: $font-size-desktop-subtitle;
-					}
+				@media ($breakpoint-desktop-up) {
+					background-color: transparent;
+				}
+
+				&::after {
+					font-size: $font-size-desktop-subtitle;
+					font-weight: bold;
 				}
 			}
 		}
