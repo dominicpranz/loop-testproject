@@ -167,6 +167,15 @@
 				pointer-events: none;
 				opacity: 0;
 
+				&::after {
+					display: inline-block;
+					position: absolute;
+					right: 1rem;
+					top: 1rem;
+					font-size: $font-size-desktop-subtitle;
+					transform: rotate(35deg);
+				}
+
 				@media ($sm-up) {
 					opacity: 1;
 				}
@@ -179,6 +188,31 @@
 				p {
 					color: $color-black;
 				}
+			}
+
+			// decorate the cards a little bit :)
+			&:nth-child(6n - 5) .team-section__card__content::after {
+				content: "🎄";
+			}
+
+			&:nth-child(6n - 4) .team-section__card__content::after {
+				content: "🎆";
+			}
+
+			&:nth-child(6n - 3) .team-section__card__content::after {
+				content: "✨";
+			}
+
+			&:nth-child(6n - 2) .team-section__card__content::after {
+				content: "🎁";
+			}
+
+			&:nth-child(6n - 1) .team-section__card__content::after {
+				content: "🧸";
+			}
+
+			&:nth-child(6n - 0) .team-section__card__content::after {
+				content: "👑";
 			}
 
 			// on mobile toggle the card content by click
