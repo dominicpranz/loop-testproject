@@ -1,34 +1,49 @@
 @use "../config/variables.scss" as *;
 
 .about-us-section {
-	padding: $gap-y $side-gap-mobile 0;
+	margin-bottom: -$clip-path-distance-team;
+	position: relative;
+	z-index: 1;
 
-	.about-us-section__columns {
-		display: flex;
-		flex-direction: column;
+	@media ($breakpoint-desktop-up) {
+		margin-bottom: -$clip-path-distance-team-lg;
+	}
 
-		@media ($breakpoint-desktop-up) {
-			flex-direction: row;
-			justify-content: center;
-		}
+	.about-us-text {
+		padding: $gap-y $side-gap-mobile 0;
 
-		& > div {
+		&__columns {
+			display: flex;
+			flex-direction: column;
+
 			@media ($breakpoint-desktop-up) {
-				flex-basis: 500px;
+				flex-direction: row;
+				justify-content: center;
 			}
 
-			&:not(:last-of-type) {
-				margin: 0 0 $side-gap-desktop;
-
+			& > div {
 				@media ($breakpoint-desktop-up) {
-					margin: 0 $side-gap-desktop 0 0;
+					flex-basis: 500px;
+				}
+
+				&:not(:last-of-type) {
+					margin: 0 0 $side-gap-desktop;
+
+					@media ($breakpoint-desktop-up) {
+						margin: 0 $side-gap-desktop 0 0;
+					}
+				}
+
+				p {
+					margin-bottom: 1rem;
+					color: $color-gray-2;
 				}
 			}
-
-			p {
-				margin-bottom: 1rem;
-				color: $color-gray-2;
-			}
 		}
+	}
+
+	.about-us-image-timeline {
+		background-color: rgba(240, 128, 128, 0.5);
+		height: 350px;
 	}
 }
