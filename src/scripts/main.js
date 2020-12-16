@@ -113,6 +113,17 @@ window.addEventListener("DOMContentLoaded", (event) => {
 		});
 	});
 
+	// add / remove expanded classes from about-us-image-timeline
+	const allImageTimelineCircles = document.querySelectorAll(".about-us-image-timeline .circle");
+	allImageTimelineCircles.forEach((circle) => {
+		circle.addEventListener("click", (e) => {
+			allImageTimelineCircles.forEach((circleTemp) => {
+				circleTemp.classList.remove("expanded");
+			});
+			circle.classList.add("expanded");
+		});
+	});
+
 	// update year in the footer
 	document.querySelector(".current-year").innerHTML = new Date().getFullYear();
 

@@ -1,13 +1,8 @@
 @use "../config/variables.scss" as *;
 
 .about-us-section {
-	margin-bottom: -$clip-path-distance-team;
 	position: relative;
 	z-index: 1;
-
-	@media ($breakpoint-desktop-up) {
-		margin-bottom: -$clip-path-distance-team-lg;
-	}
 
 	.about-us-text {
 		padding: $gap-y $side-gap-mobile 0;
@@ -43,7 +38,237 @@
 	}
 
 	.about-us-image-timeline {
-		background-color: rgba(240, 128, 128, 0.5);
-		height: 350px;
+		margin-bottom: -$clip-path-distance-team;
+		margin-top: -$clip-path-distance-team;
+		height: 330px;
+		$line-color: $color-lightgray-4-hex;
+		display: flex;
+		align-items: flex-end;
+
+		@mixin diagonal-line($direction: "up", $color: "BBBBBB", $thickness: "1") {
+			@if $direction == "up" {
+				background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3e%3cline x1='0' y1='100' x2='100' y2='0' stroke-width='#{$thickness}' stroke='%23#{$color}'/%3e%3c/svg%3e");
+			} @else {
+				background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3e%3cline x1='0' y1='0' x2='100' y2='100' stroke-width='#{$thickness}' stroke='%23#{$color}'/%3e%3c/svg%3e");
+			}
+		}
+
+		// credit to ruud voost for this cool idea: https://medium.com/@ruud/diagonal-line-through-using-svg-2eff225aafda
+		.up {
+			@include diagonal-line("up", $line-color, "1");
+
+			&.strong {
+				@include diagonal-line("up", $line-color, "3");
+			}
+
+			&.stronger {
+				@include diagonal-line("up", $line-color, "5");
+			}
+		}
+
+		.down {
+			@include diagonal-line("down", $line-color, "1");
+
+			&.strong {
+				@include diagonal-line("down", $line-color, "3");
+			}
+
+			&.stronger {
+				@include diagonal-line("down", $line-color, "5");
+			}
+		}
+
+		--line-heights-added-up: 330;
+		--current-height: 200;
+		height: var(--current-height);
+
+		$line1-height: calc((100px / var(--line-heights-added-up)) * var(--current-height));
+		$line2-height: calc((20px / var(--line-heights-added-up)) * var(--current-height));
+		$line3-height: calc((70px / var(--line-heights-added-up)) * var(--current-height));
+		$line4-height: calc((20px / var(--line-heights-added-up)) * var(--current-height));
+		$line5-height: calc((40px / var(--line-heights-added-up)) * var(--current-height));
+		$line6-height: calc((120px / var(--line-heights-added-up)) * var(--current-height));
+
+		$line-widths-added-up: 1375;
+		$line1-width: 100% / $line-widths-added-up * 300;
+		$line2-width: 100% / $line-widths-added-up * 60;
+		$line3-width: 100% / $line-widths-added-up * 250;
+		$line4-width: 100% / $line-widths-added-up * 285;
+		$line5-width: 100% / $line-widths-added-up * 210;
+		$line6-width: 100% / $line-widths-added-up * 270;
+
+		@media ($breakpoint-desktop-up) {
+			--current-height: 330;
+			margin-bottom: -$clip-path-distance-team-lg;
+		}
+
+		.line1 {
+			width: $line1-width;
+			height: $line1-height;
+		}
+
+		.line2 {
+			width: $line2-width;
+			height: $line2-height;
+			margin-bottom: calc(#{$line1-height} - #{$line2-height});
+		}
+
+		.line3 {
+			width: $line3-width;
+			height: $line3-height;
+			margin-bottom: calc(#{$line1-height} - #{$line2-height});
+		}
+
+		.line4 {
+			width: $line4-width;
+			height: $line4-height;
+			margin-bottom: calc(#{$line1-height} - #{$line2-height} + #{$line3-height});
+		}
+
+		.line5 {
+			width: $line5-width;
+			height: $line5-height;
+			margin-bottom: calc(#{$line1-height} - #{$line2-height} + #{$line3-height} + #{$line4-height});
+		}
+
+		.line6 {
+			width: $line6-width;
+			height: $line6-height;
+			margin-bottom: calc(#{$line1-height} - #{$line2-height} + #{$line3-height} + #{$line4-height} + #{$line5-height});
+		}
+
+		.circle {
+			position: absolute;
+			width: 25px;
+			height: 25px;
+			border-radius: 50%;
+			background-color: $color-accent;
+			border: 3px solid $color-lightgray-4;
+			transform: translate(-50%, 50%);
+			transition-property: height, width, transform, border-color, background-color;
+			transition-duration: $anim-speed-default;
+			transition-timing-function: $timing-function-default;
+			cursor: pointer;
+
+			&:nth-child(odd) {
+				background-color: $color-christmas-green;
+			}
+
+			@media ($breakpoint-desktop-up) {
+				width: 50px;
+				height: 50px;
+			}
+
+			&::after {
+				content: "";
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 90%;
+				height: 90%;
+				border-radius: 50%;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+				opacity: 0;
+				transition: opacity $anim-speed-default $timing-function-default;
+			}
+
+			@keyframes hover-pulse-grow {
+				to {
+					transform: translate(-50%, 50%) scale(1.1);
+				}
+			}
+
+			&:hover:not(.expanded) {
+				animation: hover-pulse-grow 0.3s ease-in-out 0s 2 normal forwards;
+			}
+
+			&.expanded {
+				width: 35vw;
+				height: 35vw;
+				border-color: rgba(73, 73, 73, 0.2);
+				background-color: $color-white;
+
+				&::after {
+					opacity: 1;
+				}
+
+				@media ($sm-up) {
+					width: 15vw;
+					height: 15vw;
+				}
+
+				@media ($breakpoint-desktop-up) {
+					width: 185px;
+					height: 185px;
+				}
+			}
+		}
+
+		.circle2,
+		.circle3,
+		.circle5 {
+			display: none;
+
+			@media ($breakpoint-desktop-up) {
+				display: inline-block;
+			}
+		}
+
+		.circle1 {
+			left: $line1-width;
+			bottom: $line1-height;
+
+			&::after {
+				background-image: url("#{$image-path}/background/christmas1.webp");
+			}
+		}
+
+		.circle2 {
+			left: 35%;
+			bottom: calc(var(--current-height) * #{(120 / 330)}px);
+
+			&::after {
+				background-image: url("#{$image-path}/background/snowman1.webp");
+			}
+		}
+
+		.circle3 {
+			left: 45%;
+			bottom: calc(var(--current-height) * #{(150 / 330)}px);
+
+			&::after {
+				background-image: url("#{$image-path}/background/snowman3.webp");
+			}
+		}
+
+		.circle4 {
+			left: 56%;
+			bottom: calc(var(--current-height) * #{(160 / 330)}px);
+
+			&::after {
+				background-image: url("#{$image-path}/background/snowman2.webp");
+			}
+		}
+
+		.circle5 {
+			left: 70%;
+			bottom: calc(var(--current-height) * #{(180 / 330)}px);
+
+			&::after {
+				background-image: url("#{$image-path}/background/snowman4.webp");
+			}
+		}
+
+		.circle6 {
+			left: 81%;
+			bottom: calc(var(--current-height) * #{(210 / 330)}px);
+
+			&::after {
+				background-image: url("#{$image-path}/background/christmas2.webp");
+			}
+		}
 	}
 }
