@@ -101,36 +101,36 @@
 				height: $burger-icon-line-height;
 				width: 100%;
 				background-color: $color-black;
-				transition-property: transform, opacity, width;
+				transition-property: transform, opacity, width, top;
 				transition-duration: $anim-speed-fast;
 				transition-timing-function: $timing-function-default;
 				transform-origin: center;
 				transform: translateY(-50%);
 
 				&:nth-of-type(1) {
-					top: calc(#{$burger-icon-line-height} + 10%);
+					top: 15%;
 				}
 				&:nth-of-type(2) {
 					top: 50%;
 				}
 				&:nth-of-type(3) {
-					top: calc(100% - #{$burger-icon-line-height} - 10%);
+					top: calc(100% - 15%);
 				}
 			}
 
 			&.opened {
 				.line {
 					&:nth-of-type(1) {
-						transform: translateY(14px) rotate(-45deg);
-						top: -2px;
+						transform: translateY(-50%) rotate(-45deg);
+						top: 50%;
 						width: 80%;
 					}
 					&:nth-of-type(2) {
 						opacity: 0;
 					}
 					&:nth-of-type(3) {
-						transform: translateY(-15px) rotate(45deg);
-						top: calc(100% - 2px);
+						transform: translateY(-50%) rotate(45deg);
+						top: 50%;
 						width: 80%;
 					}
 				}
