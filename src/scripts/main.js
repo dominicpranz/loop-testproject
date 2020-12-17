@@ -106,16 +106,31 @@ window.addEventListener("DOMContentLoaded", (event) => {
 		});
 	});
 
-	// close modals with close button
-	document.querySelector(".custom-modals__button--close").addEventListener("click", (e) => {
-		e.preventDefault();
-
+	function closeModals() {
 		document.querySelector(".custom-modals").classList.remove("opened");
 		bodyElement.classList.remove("prevent-scrolling");
 
 		document.querySelectorAll(".custom-modal").forEach((customModal) => {
 			customModal.classList.remove("opened");
 		});
+	}
+
+	// close modals with close button
+	document.querySelector(".custom-modals__button--close").addEventListener("click", (e) => {
+		e.preventDefault();
+		closeModals();
+	});
+
+	const customModalsWrapper = document.querySelector(".custom-modals");
+	customModalsWrapper.addEventListener("click", (mouseEvent) => {
+		// if clicked outside of modal content
+		if (mouseEvent.target === customModalsWrapper) {
+			closeModals();
+		}
+	});
+
+	document.querySelector(".nav-top__logo").addEventListener("click", () => {
+		closeModals();
 	});
 
 	// add / remove expanded classes from about-us-image-timeline

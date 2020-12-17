@@ -54,8 +54,14 @@
 
 		@media ($breakpoint-desktop-up) {
 			padding-top: $nav-height-desktop;
-			width: calc(#{$max-width-desktop} - #{$sidebar-width} * 2);
+			width: calc(100% - #{$sidebar-width});
 			overflow: visible; // show sidebar
+			align-self: flex-start;
+		}
+
+		@media (min-width: #{$max-width-desktop}) {
+			width: calc(#{$max-width-desktop} - #{$sidebar-width} * 2);
+			align-self: center;
 		}
 
 		.custom-modals__sidebar {
