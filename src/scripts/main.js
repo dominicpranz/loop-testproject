@@ -51,9 +51,14 @@ function initArticleSwipers() {
 	});
 }
 
+var swipersInitialized = false;
+
 function initSwipers() {
-	initNewsSwipers();
-	initArticleSwipers();
+	if (!swipersInitialized) {
+		initNewsSwipers();
+		initArticleSwipers();
+		swipersInitialized = true;
+	}
 }
 
 // wait until dom elements are loaded
