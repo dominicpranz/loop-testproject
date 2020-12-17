@@ -1,7 +1,7 @@
 # Loop Christmas Project
 
 A simple one page layout, with some added christmas flavor.
-Use query-parameter "?nosnow" to remove the snow effect if you don't like it.
+Use query-parameter "?snow" to let it snow. It can eat up CPU, that's why it is an optional feature - with a toggler to turn it off.
 
 # Screendesign
 

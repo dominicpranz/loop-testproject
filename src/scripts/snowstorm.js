@@ -658,12 +658,33 @@ var snowStorm = (function (window, document) {
 })(window, document);
 
 // add customizations here
+
+snowStorm.autoStart = false;
 snowStorm.followMouse = false;
 snowStorm.freezeOnBlur = false;
+snowStorm.zIndex = 1500;
 //snowStorm.vMaxX = 8;
 //snowStorm.vMaxY = 5;
 //snowStorm.flakesMaxActive = 64;
 //snowStorm.flakesMax = 128;
-snowStorm.zIndex = 1500;
-// stop snow effect if query parameter does include the word "nosnow"
-if (window.location.search.includes("nosnow")) snowStorm.stop();
+
+// stop snow effect if query parameter doesn't include the word "snow"
+if (!window.location.search.includes("snow")) {
+	snowStorm.stop();
+} else {
+	// apparently needs to be toggled twice to prevent snow on page load
+	//snowStorm.toggleSnow();
+	//snowStorm.toggleSnow();
+
+	const toggleButton = document.querySelector(".toggle-button-snow");
+	toggleButton.style.display = "block";
+	toggleButton.addEventListener("click", (e) => {
+		if (toggleButton.checked) {
+			snowStorm.start();
+			snowStorm.resume();
+		} else {
+			snowStorm.freeze();
+			snowStorm.stop();
+		}
+	});
+}

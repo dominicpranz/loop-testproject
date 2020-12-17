@@ -1,0 +1,49 @@
+// toggle button
+
+@use "../config/variables.scss" as *;
+
+.toggle-button-snow {
+	display: none; // show only when enabled by js
+	-webkit-appearance: none;
+	position: fixed;
+	$toggle-button-gap: 1rem;
+	right: $toggle-button-gap;
+	bottom: $toggle-button-gap;
+	width: 4rem;
+	height: 2rem;
+	border-radius: 2rem;
+	z-index: $z-index-toggle-button;
+	background-image: url("#{$image-path}/background/snow1.webp");
+	outline: none;
+	cursor: pointer;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	transition: background-image $anim-speed-fast $timing-function-default;
+	box-shadow: 0px 2px 5px 1px $color-gray;
+
+	@media (min-width: #{$max-width-desktop}) {
+		right: calc((100% - #{$max-width-desktop}) / 2 + #{$toggle-button-gap});
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		border-radius: 50%;
+		height: 100%;
+		width: 50%;
+		background-color: $color-white;
+		transition: transform $anim-speed-fast $timing-function-default, background-color $anim-speed-fast $timing-function-default;
+	}
+
+	&:checked {
+		background-image: url("#{$image-path}/background/snow2.webp");
+
+		&::before {
+			transform: translate(-100%, 0);
+			background-color: $color-accent;
+		}
+	}
+}
